@@ -7,8 +7,8 @@ const topic_tag = "me";
 
 async function repos() {
 
-  page = 1;
-  count = 0;
+  let page = 1;
+  let count = 0;
   while (true) {
     const response = await fetch(url + "?sort=updated&direction=desc&per_page=100&page=" + page);
     const repos = await response.json();
@@ -32,7 +32,7 @@ async function repos() {
     page++;
   }
 
-  if (count != 0) {
+  if (count !== 0) {
     $("#repos-add").hide();
     $("#repos-title").show();
     $("#repos-all").show();
@@ -80,7 +80,7 @@ function topicsSpan(repo) {
   topics = "";
   for (var i = 0; i < repo.topics.length; i++) {
     topic = repo.topics[i];
-    if (topic == topic_tag) { continue; }
+    if (topic === topic_tag) { continue; }
     topics += `<span class="inline-block bg-gray-200 dark:bg-gray-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 dark:text-gray-400 mr-1 mb-1">#${topic}</span>`
   }
 

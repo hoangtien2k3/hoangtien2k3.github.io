@@ -1,6 +1,6 @@
-var darkIcon = document.getElementById('dark-icon');
-var lightIcon = document.getElementById('light-icon');
-var themeToggleBtn = document.getElementById('theme-toggle');
+const darkIcon = document.getElementById('dark-icon');
+const lightIcon = document.getElementById('light-icon');
+const themeToggleBtn = document.getElementById('theme-toggle');
 
 if (localStorage.getItem('color-theme') === 'dark' || document.documentElement.classList.contains('dark')) {
   setDark();
