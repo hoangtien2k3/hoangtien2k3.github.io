@@ -1,4 +1,4 @@
-# /me
+# /Github Page Profile
 
 ## About /me
 
@@ -50,7 +50,7 @@ See [how to deploy](/docs/how-to-deploy.md) to step by step details.
 
 ## How show the repositories?
 
-To show GitHub repository on profile page add `me` tag to repo.
+To show GitHub repository on profile page add `hoangtien2k3.github.io` tag to repo.
 
 The project catalog component dynamically runs on client side using jquery.
 
@@ -66,14 +66,8 @@ The endpoint used are:
 Clone repository
 
 ```console
-git clone git@github.com:hoangtien2k3/me.git
-cd me
-```
-
-Building the page using python3:
-
-```console
-GITHUB_USERNAME=<username> python3 builder/main.py
+git clone git@github.com:hoangtien2k3/hoangtien2k3.github.io.git
+cd hoangtien2k3.github.io
 ```
 
 Open the `index.html` file.
