@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  repos();
+    repos();
 });
 
 const url = "https://api.github.com/users/" + username + "/repos";
@@ -7,40 +7,40 @@ const topic_tag = "me";
 
 async function repos() {
 
-  let page = 1;
-  let count = 0;
-  while (true) {
-    const response = await fetch(url + "?sort=updated&direction=desc&per_page=100&page=" + page);
-    const repos = await response.json();
-    $("#loading").hide();
+    let page = 1;
+    let count = 0;
+    while (true) {
+        const response = await fetch(url + "?sort=updated&direction=desc&per_page=100&page=" + page);
+        const repos = await response.json();
+        $("#loading").hide();
 
-    if (!repos.length) {
-      break;
+        if (!repos.length) {
+            break;
+        }
+
+        for (var i = 0; i < repos.length; i++) {
+            repo = repos[i]
+            if (repos[i].topics.includes(topic_tag)) {
+                if (repo.language == null) repo.language = "";
+                if (repo.name.length > 30) repo.name = `${repo.name.substring(0, 30)}...`;
+                if (repo.description.length > 100) repo.description = `${repo.description.substring(0, 100)}...`;
+                $("#repos").append(repoCard(repo))
+                count++;
+            }
+        }
+
+        page++;
     }
 
-    for (var i = 0; i < repos.length; i++) {
-      repo = repos[i]
-      if (repos[i].topics.includes(topic_tag)) {
-        if (repo.language == null) repo.language = "";
-        if (repo.name.length > 30) repo.name = `${repo.name.substring(0, 30)}...`;
-        if (repo.description.length > 100) repo.description = `${repo.description.substring(0, 100)}...`;
-        $("#repos").append(repoCard(repo))
-        count++;
-      }
+    if (count !== 0) {
+        $("#repos-add").hide();
+        $("#repos-title").show();
+        $("#repos-all").show();
     }
-
-    page++;
-  }
-
-  if (count !== 0) {
-    $("#repos-add").hide();
-    $("#repos-title").show();
-    $("#repos-all").show();
-  }
 }
 
 function repoCard() {
-  return `
+    return `
   <div class="rounded overflow-hidden shadow-lg bg-white dark:bg-slate-800 hover:bg-gray-100 dark:hover:bg-slate-700">
     <div class="p-6">
       <div class="font-bold text-xl text-gray-500 ">${repo.language}</div>
@@ -77,12 +77,14 @@ function repoCard() {
 }
 
 function topicsSpan(repo) {
-  topics = "";
-  for (var i = 0; i < repo.topics.length; i++) {
-    topic = repo.topics[i];
-    if (topic === topic_tag) { continue; }
-    topics += `<span class="inline-block bg-gray-200 dark:bg-gray-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 dark:text-gray-400 mr-1 mb-1">#${topic}</span>`
-  }
+    topics = "";
+    for (var i = 0; i < repo.topics.length; i++) {
+        topic = repo.topics[i];
+        if (topic === topic_tag) {
+            continue;
+        }
+        topics += `<span class="inline-block bg-gray-200 dark:bg-gray-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 dark:text-gray-400 mr-1 mb-1">#${topic}</span>`
+    }
 
-  return topics
+    return topics
 }
