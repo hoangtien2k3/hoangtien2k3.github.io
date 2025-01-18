@@ -6,7 +6,6 @@ const url = "https://api.github.com/users/" + username + "/repos";
 const topic_tag = "me";
 
 async function repos() {
-
     let page = 1;
     let count = 0;
     while (true) {
