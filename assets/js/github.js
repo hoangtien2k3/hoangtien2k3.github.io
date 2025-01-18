@@ -2,14 +2,15 @@ $(document).ready(function () {
     repos();
 });
 
-const url = "https://api.github.com/users/" + username + "/repos";
+const repoUrl = `https://api.github.com/users/${username}/repos`;
+const userUrl = `https://api.github.com/users/${username}`;
 const topic_tag = "me";
 
 async function repos() {
     let page = 1;
     let count = 0;
     while (true) {
-        const response = await fetch(url + "?sort=updated&direction=desc&per_page=100&page=" + page);
+        const response = await fetch(repoUrl + "?sort=updated&direction=desc&per_page=100&page=" + page);
         const repos = await response.json();
         $("#loading").hide();
 
@@ -87,3 +88,51 @@ function topicsSpan(repo) {
 
     return topics
 }
+
+async function fetchGitHubData() {
+    try {
+        // Fetch user data
+        const userResponse = await fetch(userUrl);
+        if (!userResponse.ok) throw new Error("Failed to fetch user data");
+        const userData = await userResponse.json();
+
+        // Fetch repository data to calculate total stars
+        const reposResponse = await fetch(repoUrl);
+        if (!reposResponse.ok) throw new Error("Failed to fetch repositories");
+        const reposData = await reposResponse.json();
+
+        // Calculate total stars
+        const totalStars = reposData.reduce((sum, repo) => sum + repo.stargazers_count, 0);
+
+        //tong so repo public
+        document.getElementById("repo-count").innerHTML = `
+            <i class="fa-solid fa-diagram-project"></i> ${userData.public_repos} repositories
+        `;
+        document.getElementById("repo-count").href = `https://github.com/${username}?tab=repositories`;
+
+        //tong so luot follow
+        document.getElementById("follower-count").innerHTML = `
+          <i class="fa-solid fa-users"></i> ${userData.followers} followers
+        `;
+        document.getElementById("follower-count").href = `https://github.com/${username}?tab=followers`;
+
+        //tong so start project
+        document.getElementById("star-count").innerHTML = `
+          <i class="fa-solid fa-star"></i> ${totalStars} stars
+        `;
+        document.getElementById("star-count").href = `https://github.com/${username}?tab=repositories`;
+
+        //location
+        if (userData.location) {
+            document.getElementById("location").innerHTML = `
+                <i class="fa-solid fa-location-dot"></i> ${userData.location}
+            `;
+        } else {
+            document.getElementById("location").style.display = "none";
+        }
+    } catch (error) {
+        console.error("Error fetching GitHub data:", error);
+    }
+}
+
+fetchGitHubData();
