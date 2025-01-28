@@ -91,17 +91,17 @@ function topicsSpan(repo) {
 
 async function fetchGitHubData() {
     try {
-        // Fetch user data
+        //fetch user data
         const userResponse = await fetch(userUrl);
         if (!userResponse.ok) throw new Error("Failed to fetch user data");
         const userData = await userResponse.json();
 
-        // Fetch repository data to calculate total stars
+        //fetch repository data to calculate total stars
         const reposResponse = await fetch(repoUrl);
         if (!reposResponse.ok) throw new Error("Failed to fetch repositories");
         const reposData = await reposResponse.json();
 
-        // Calculate total stars
+        //calculate total stars
         const totalStars = reposData.reduce((sum, repo) => sum + repo.stargazers_count, 0);
 
         //tong so repo public
@@ -110,13 +110,13 @@ async function fetchGitHubData() {
         `;
         document.getElementById("repo-count").href = `https://github.com/${username}?tab=repositories`;
 
-        //tong so luot follow
+        //total follow
         document.getElementById("follower-count").innerHTML = `
           <i class="fa-solid fa-users"></i> ${userData.followers} followers
         `;
         document.getElementById("follower-count").href = `https://github.com/${username}?tab=followers`;
 
-        //tong so start project
+        //total start project
         document.getElementById("star-count").innerHTML = `
           <i class="fa-solid fa-star"></i> ${totalStars} stars
         `;
