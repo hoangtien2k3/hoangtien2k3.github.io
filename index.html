@@ -19,48 +19,99 @@
     <meta name="theme-color" content="black">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+      @keyframes textColorChange {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      .text-color-animated {
+        display: inline-block;
+        position: relative;
+        font-weight: bold;
+        color: white;
+      }
+      .text-color-animated::before {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--gradient);
+        background-size: 400% 400%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: textColorChange 4s infinite linear;
+      }
+      .text-color {
+        --gradient: linear-gradient(90deg, #ff00ff, #00ffff, #ff9900, #ff0000, #00ff00, #0000ff, #ff00ff);
+      }
+      .animated-icon {
+        animation: spin 2s linear infinite;
+      }
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      .text-shadow:hover {
+        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+      }
+    </style>
   </head>
   <body>
-    <header class="p-10">
-      <span class="text-gray-500 dark:text-gray-300">&lt;</span>
-      <a href="#"><span class="text-slate-700 dark:text-white px-3" style="font-family: 'Agustina Regular'; font-size: 1.9em">Hoàng Anh Tiến</span></a>
-      <span class="text-gray-500 dark:text-gray-300">/&gt;</span>
-    </header>
     <section class="pt-10 pl-20 pb-10">
       <img class="rounded-full ring-2 ring-white h-20 w-20 md:h-36 md:w-36" src="https://avatars.githubusercontent.com/u/122768076?v=4"/>
       <h1 class="pt-4 text-2xl md:text-4xl text-slate-800 dark:text-white">Hi there, I'm
         <div id="typing" class="inline-block font-semibold"></div>
       </h1>
-      <h2 class="pt-10 pr-10 text-xl md:text-3xl text-gray-500 dark:text-gray-300">
-        A passionate Backend Developer 🚀 with experience building<br>
-        Backend with Java | Golang | Kotlin | Reactive Programming<br>
-        Spring Boot | Docker | K8s other Libraries and Framework ☹²ᵏ³
+      <h2 class="pt-10 pr-10 text-xl md:text-3xl text-shadow">
+        <div class="fade-in-line flex flex-wrap mt-2 parrot-container">
+          <img src="https://cultofthepartyparrot.com/parrots/hd/githubparrot.gif" width="25" height="25"/>
+          <img src="https://cultofthepartyparrot.com/flags/hd/iranparrot.gif" width="25" height="25"/>
+          <img src="https://cultofthepartyparrot.com/parrots/hd/dealwithitnowparrot.gif" width="25" height="25"/>
+          <img src="https://cultofthepartyparrot.com/parrots/hd/laptop_parrot.gif" width="25" height="25"/>
+          <img src="https://cultofthepartyparrot.com/parrots/hd/stableparrot.gif" width="25" height="25"/>
+          <img src="https://cultofthepartyparrot.com/parrots/hd/scienceparrot.gif" width="25" height="25"/>
+          <img src="https://cultofthepartyparrot.com/parrots/hd/pirateparrot.gif" width="25" height="25"/>
+          <img src="https://cultofthepartyparrot.com/parrots/hd/footballparrot.gif" width="25" height="25"/>
+          <img src="https://cultofthepartyparrot.com/parrots/hd/illuminatiparrot.gif" width="25" height="25"/>
+          <img src="https://cultofthepartyparrot.com/parrots/hd/hypnoparrotdark.gif" width="25" height="25"/>
+          <img src="https://cultofthepartyparrot.com/parrots/hd/mustacheparrot.gif" width="25" height="25"/>
+        </div>
+        <span class="fade-in-line block text-color-animated text-color" data-text="Backend Developer">
+          Backend Developer
+          <span class="animated-icon inline-block ml-2">✌️</span>
+        </span>
       </h2>
-      <h3 class="pt-10 text-lg md:text-2xl text-gray-700 dark:text-white font-semibold">@backend-source</h3>
       <h4 class="pt-2 text-base md:text-1xl text-gray-700 dark:text-white">Hà Nội, Việt Nam</h4>
-      <div class="py-8">
-        <button id="theme-toggle" class="py-1.5 px-4 mr-4 bg-purple-600 text-white font-semibold rounded-lg shadow-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+      <div class="py-6 flex flex-wrap gap-6">
+        <button id="theme-toggle" class="text-gray-700 dark:text-white">
           <div id="dark-icon">
-            <i class="fa-solid fa-moon"></i> Dark Mode
+            <i class="fa-solid fa-moon text-3xl"></i>
           </div>
           <div id="light-icon">
-            <i class="fa-solid fa-sun"></i> Light Mode
+            <i class="fa-solid fa-sun text-3xl"></i>
           </div>
         </button>
-        <a class="py-2 px-4 bg-gray-500 text-white font-semibold rounded-lg shadow-md hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75" href="https://github.com/hoangtien2k3" target="_blank">
-          <i class="fa-brands fa-github"></i> GitHub
+        <a class="text-gray-700 dark:text-white" href="https://github.com/hoangtien2k3" target="_blank" title="GitHub">
+          <i class="fa-brands fa-github text-3xl"></i>
         </a>
-        <a class="py-2 px-4 ml-4 bg-gray-500 text-white font-semibold rounded-lg shadow-md hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75" href="https://hoangtien2k3.vercel.app" target="_blank">
-          <i class="fas fa-globe"></i> Website
+        <a class="text-gray-700 dark:text-white" href="https://hoangtien2k3.vercel.app" target="_blank" title="Website">
+          <i class="fas fa-globe text-3xl"></i>
         </a>
-        <a class="py-2 px-4 ml-4 bg-gray-500 text-white font-semibold rounded-lg shadow-md hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75" href="https://www.tiktok.com/@ctdl.gt" target="_blank">
-          <i class="fab fa-tiktok"></i> Tiktok
+        <a class="text-gray-700 dark:text-white" href="https://www.tiktok.com/@ctdl.gt" target="_blank" title="TikTok">
+          <i class="fab fa-tiktok text-3xl"></i>
         </a>
-        <a class="py-2 px-4 ml-4 bg-gray-500 text-white font-semibold rounded-lg shadow-md hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75" href="https://www.linkedin.com/in/hoangtien2k3/" target="_blank">
-          <i class="fab fa-linkedin"></i> Linkedin
+        <a class="text-gray-700 dark:text-white" href="https://www.linkedin.com/in/hoangtien2k3/" target="_blank" title="LinkedIn">
+          <i class="fab fa-linkedin text-3xl"></i>
         </a>
-        <a class="py-2 px-4 ml-4 bg-gray-500 text-white font-semibold rounded-lg shadow-md hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75" href="https://github.com/hoangtien2k3/reactify-core" target="_blank">
-          <i class="fab fa-java"></i> Library
+        <a class="text-gray-700 dark:text-white" href="https://github.com/hoangtien2k3/reactify-core" target="_blank" title="Library">
+          <i class="fab fa-java text-3xl"></i>
+        </a>
+        <a class="text-gray-700 dark:text-white" href="https://drive.google.com/file/d/1P9xZj1EU45KAkJMrci8sSaVgbsk9g789/view" target="_blank" title="CV">
+          <i class="fa-solid fa-address-card text-3xl"></i>
         </a>
       </div>
       <br><hr>
@@ -74,6 +125,10 @@
         <a id="star-count" class="pl-4 text-gray-600 dark:text-white hover:text-purple-600" href="#" target="_blank">
           <i class="fa-solid fa-star"></i> 285 stars
         </a>
+        <span id="clock" class="pl-4 text-gray-600 dark:text-white">
+          <i class="fa-solid fa-clock"></i>
+          <span id="time-display"></span>
+        </span>
       </div>
     </section>
     <footer class="pt-8 pb-2 flex flex-col items-center">
@@ -84,6 +139,19 @@
     <script>
       const username = "hoangtien2k3";
       document.querySelector('meta[property="og:url"]').setAttribute("content", window.location.href);
+      function updateClock() {
+        const now = new Date();
+        const day = String(now.getDate()).padStart(2, '0');
+        const month = String(now.getMonth() + 1).padStart(2, '0'); // Tháng bắt đầu từ 0
+        const year = now.getFullYear();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        const timeString = `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+        document.getElementById('time-display').textContent = timeString;
+      }
+      updateClock();
+      setInterval(updateClock, 1000);
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="assets/js/typing.js"></script>
