@@ -45,7 +45,7 @@ const AboutMe = () => {
             height={60}
             alt="location image"
             textH4="Born and bought up in"
-            textH3="Thanh Hoa, Viet Nam"
+            textH3="Viet Nam"
           />
         </Col>
         <Col xs={24} sm={24} md={12} lg={8}>
