@@ -21,7 +21,7 @@ const {
 
 const DomContent = () => (
   <aside>
-    <div className={style.profileAvatar} />
+    <div className={`${style.profileAvatar} float-animation`} />
     <div className={`${style.name} centerAlign`}>
       <div className={`${style.boxName} centerAlign`}>
         <h2>
@@ -39,12 +39,12 @@ const DomContent = () => (
       </div>
       <div className={`${style.badge} ${style.badgeGray}`}>Backend Developer</div>
       <div className="centerAlign box">
-        <a href={globe} target="_blank" label="button" rel="noopener noreferrer">
+        <a href={globe} target="_blank" label="button" rel="noopener noreferrer" className="hover-grow">
           <FA
             name="globe"
           />
         </a>
-        <a href={github} target="_blank" label="button" rel="noopener noreferrer">
+        <a href={github} target="_blank" label="button" rel="noopener noreferrer" className="hover-grow">
           <FA
             name="github"
           />
@@ -59,12 +59,12 @@ const DomContent = () => (
             name="twitter"
           />
         </a>
-        <a href={linkedin} target="_blank" label="button" rel="noopener noreferrer">
+        <a href={linkedin} target="_blank" label="button" rel="noopener noreferrer" className="hover-grow">
           <FA
             name="linkedin"
           />
         </a>
-        <a href={tiktok} target="_blank" label="button" rel="noopener noreferrer">
+        <a href={tiktok} target="_blank" label="button" rel="noopener noreferrer" className="hover-grow">
           <FA
             name="tiktok"
           />
@@ -120,7 +120,7 @@ const Sidebar = (props) => {
       <Layout>
         <Content className={`${style.content} ${style.background}`}>
           <Row>
-            <Col sm={24} md={9} lg={6} className={style.sidebarContent}>
+            <Col sm={24} md={9} lg={6} className={`${style.sidebarContent} animate-fade-in-up`} style={{ position: 'sticky', top: '20px', height: 'fit-content' }}>
               {domContent}
             </Col>
             <Col sm={24} md={15} lg={18} className={style.mainContent}>

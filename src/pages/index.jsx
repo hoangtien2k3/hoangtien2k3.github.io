@@ -19,10 +19,10 @@ export default () => (
       <Header />
       <SidebarWrapper>
         <div id="hoangtien2k3">
-          <AboutMe />
-          <Experience />
-          <SelectedProjects />
-          <SkillsProgress />
+          <div className="animate-fade-in-up delay-100"><AboutMe /></div>
+          <div className="animate-fade-in-up delay-300"><Experience /></div>
+          <div className="animate-fade-in-up delay-400"><SelectedProjects /></div>
+          <div className="animate-fade-in-up delay-200"><SkillsProgress /></div>
         </div>
       </SidebarWrapper>
     </Layout>

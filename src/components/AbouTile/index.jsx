@@ -6,7 +6,7 @@ const AboutTile = (props) => {
     img, textH4, textH3, alt, height, width,
   } = props;
   return (
-    <div className={style.aboutTile}>
+    <div className={`${style.aboutTile} hover-lift`}>
       <div className={style.aboutBlock}>
         <img
           src={`../${img}`}
@@ -16,8 +16,8 @@ const AboutTile = (props) => {
         />
       </div>
       <div className={`textCenter ${style.mrTp26PX}`}>
-        <h4>{ textH4 || ''}</h4>
-        <h3>{textH3 || '' }</h3>
+        <h4>{textH4 || ''}</h4>
+        <h3>{textH3 || ''}</h3>
       </div>
     </div>
   );

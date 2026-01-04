@@ -8,7 +8,7 @@ const PostCard = (props) => {
   const { data: { node: { frontmatter } } } = props;
 
   return (
-    <div className={style.postCard}>
+    <div className={`${style.postCard} hover-lift`}>
       <Link to={Utils.resolvePageUrl(frontmatter.path)}>
         <div
           className={style.postCardImg}
@@ -24,7 +24,7 @@ const PostCard = (props) => {
           <p>{frontmatter ? frontmatter.excerpt : ''}</p>
           <p style={{ color: '#ce6d96', wordSpacing: '10px' }}>
             {
-                `#${frontmatter.tags.join(' #')}`
+              `#${frontmatter.tags.join(' #')}`
             }
           </p>
         </div>
