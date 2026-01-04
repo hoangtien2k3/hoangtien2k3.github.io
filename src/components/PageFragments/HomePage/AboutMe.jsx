@@ -44,7 +44,6 @@ const AboutMe = () => {
             img="location.png"
             height={60}
             alt="location image"
-            textH4="Born and bought up in"
             textH3="Viet Nam"
           />
         </Col>
@@ -52,7 +51,6 @@ const AboutMe = () => {
           <AboutTile
             img="research.jpg"
             alt="web image"
-            textH4="Research Topic"
             textH3="Backend Development"
             height={60}
             width={60}
@@ -62,7 +60,6 @@ const AboutMe = () => {
           <AboutTile
             img="graduation.png"
             alt="graduation image"
-            textH4="Studying College"
             textH3="Information technology"
             height={60}
             width={60}
