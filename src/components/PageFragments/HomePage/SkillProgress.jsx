@@ -1,21 +1,49 @@
 import React from 'react';
-import { Col, Row } from 'antd';
-import ProgressBar from '../../Progress';
+import { Row, Col } from 'antd';
+import style from './skillprogress.module.less';
 
 const SkillsProgress = () => (
   <div>
-    <h1 className="titleSeparate">My Skills</h1>
-    <Row gutter={[20, 20]}>
-      <Col xs={24} sm={24} md={22}>
-        <ProgressBar
-          percent={90}
-          text="Proficient in Java, Kotlin; familiar with Golang, C++"
-        />
-        <ProgressBar percent={80} text="Data Structures and Algorithms" />
-        <ProgressBar percent={75} text="Database" />
-        <ProgressBar percent={75} text="Creativity" />
-      </Col>
-    </Row>
+    <h1 className="titleSeparate">GitHub Statistics</h1>
+    <div className={style.statsContainer}>
+      <Row gutter={[16, 16]} justify="center">
+        <Col xs={24} sm={12} md={12} lg={12}>
+          <img
+            src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=hoangtien2k3&theme=default"
+            alt="GitHub Stats"
+            className={style.statCard}
+          />
+        </Col>
+        <Col xs={24} sm={12} md={12} lg={12}>
+          <img
+            src="http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=hoangtien2k3&theme=default"
+            alt="Most Commit Language"
+            className={style.statCard}
+          />
+        </Col>
+        <Col xs={24} sm={12} md={12} lg={12}>
+          <img
+            src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=hoangtien2k3&theme=default"
+            alt="Repos Per Language"
+            className={style.statCard}
+          />
+        </Col>
+        <Col xs={24} sm={12} md={12} lg={12}>
+          <img
+            src="http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=hoangtien2k3&theme=default"
+            alt="Productive Time"
+            className={style.statCard}
+          />
+        </Col>
+        <Col xs={24}>
+          <img
+            src="http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=hoangtien2k3&theme=default"
+            alt="Profile Details"
+            className={style.statCardFull}
+          />
+        </Col>
+      </Row>
+    </div>
   </div>
 );
 
