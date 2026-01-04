@@ -25,7 +25,7 @@ const Experience = () => (
       <p style={{ marginBottom: '1em' }}>
         <Row>
           <Col xs={7}>
-            <h3>VTI (VTI Group)</h3>
+            <h3 style={{ marginBottom: '0.3em' }}>VTI (VTI Group)</h3>
           </Col>
         </Row>
         <li style={{ marginLeft: '1rem' }}>Develop the Mobi system (a ride-hailing system for 3 markets: Japan, Malaysia, and Vietnam)</li>
@@ -35,7 +35,7 @@ const Experience = () => (
       <p style={{ marginBottom: '1em' }}>
         <Row>
           <Col xs={7}>
-            <h3>Viettel Telecom</h3>
+            <h3 style={{ marginBottom: '0.3em' }}>Viettel Telecom</h3>
           </Col>
         </Row>
         <li style={{ marginLeft: '1rem' }}>Developing a Java backend microservice system (SME-HUB)</li>
@@ -45,7 +45,7 @@ const Experience = () => (
       <p style={{ marginBottom: '1em' }}>
         <Row>
           <Col xs={7}>
-            <h3>Cen Land (Cen Group)</h3>
+            <h3 style={{ marginBottom: '0.3em' }}>Cen Land (Cen Group)</h3>
           </Col>
         </Row>
         <li style={{ marginLeft: '1rem' }}>Actively contributed to developing an Android application (Fastee)</li>
