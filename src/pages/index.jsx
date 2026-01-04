@@ -6,7 +6,6 @@ import SidebarWrapper from '../components/PageLayout/Sidebar';
 import AboutMe from '../components/PageFragments/HomePage/AboutMe';
 import SkillsProgress from '../components/PageFragments/HomePage/SkillProgress';
 import Experience from '../components/PageFragments/HomePage/Experience';
-import SelectedProjects from '../components/PageFragments/HomePage/SelectedProjects';
 
 export default () => (
   <Layout className="outerPadding">
@@ -21,7 +20,6 @@ export default () => (
         <div id="hoangtien2k3">
           <div className="animate-fade-in-up delay-100"><AboutMe /></div>
           <div className="animate-fade-in-up delay-300"><Experience /></div>
-          <div className="animate-fade-in-up delay-400"><SelectedProjects /></div>
           <div className="animate-fade-in-up delay-200"><SkillsProgress /></div>
         </div>
       </SidebarWrapper>
