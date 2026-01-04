@@ -32,12 +32,8 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v2
         with:
+          # Deploy the site to the `main` branch (GitHub Pages will serve from this branch)
           branch: main
-        with:
-          # The branch to deploy to (GitHub Pages will use this automatically)
-          # No need to specify; defaults to gh-pages or the branch set in repo settings
-          # If you want to force a specific branch, uncomment below:
-          # branch: gh-pages
 
       - name: Output deployment URL
         run: echo "✅ Site deployed! Visit https://hoangtien2k3.github.io/"
