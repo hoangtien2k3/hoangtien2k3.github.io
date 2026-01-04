@@ -32,6 +32,8 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v2
         with:
+          branch: main
+        with:
           # The branch to deploy to (GitHub Pages will use this automatically)
           # No need to specify; defaults to gh-pages or the branch set in repo settings
           # If you want to force a specific branch, uncomment below:
