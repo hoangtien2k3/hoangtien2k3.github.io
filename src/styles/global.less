@@ -250,3 +250,17 @@ ul {
 .pulse-animation {
   animation: pulse-glow 2s infinite;
 }
+
+/* Submit Button Effects */
+.submit-button-effect {
+  &:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 4px 12px rgba(48, 76, 253, 0.3) !important;
+    background: #4d5fff !important;
+  }
+
+  &:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: 0 2px 6px rgba(48, 76, 253, 0.25) !important;
+  }
+}

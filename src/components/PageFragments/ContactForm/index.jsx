@@ -41,7 +41,18 @@ export default () => {
           <Input.TextArea size="large" rows={7} placeholder="Description *" />
         </Form.Item>
         <Form.Item>
-          <Button type="primary" shape="round" size="large" htmlType="submit" style={{ background: '#304CFD' }}>
+          <Button
+            type="primary"
+            shape="round"
+            size="large"
+            htmlType="submit"
+            className="submit-button-effect"
+            style={{
+              background: '#304CFD',
+              transition: 'all 0.3s ease',
+              boxShadow: '0 2px 8px rgba(48, 76, 253, 0.2)',
+            }}
+          >
             SUBMIT
           </Button>
         </Form.Item>
