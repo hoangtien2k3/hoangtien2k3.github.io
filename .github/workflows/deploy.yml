@@ -1,0 +1,41 @@
+name: Deploy static site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Adjust if your default branch is different
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Fetch the entire repository (including any submodules if present)
+          fetch-depth: 0
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          # Path to the static site files – adjust if your site is in a subdirectory
+          path: ./
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+        with:
+          # The branch to deploy to (GitHub Pages will use this automatically)
+          # No need to specify; defaults to gh-pages or the branch set in repo settings
+          # If you want to force a specific branch, uncomment below:
+          # branch: gh-pages
+
+      - name: Output deployment URL
+        run: echo "✅ Site deployed! Visit https://hoangtien2k3.github.io/"
